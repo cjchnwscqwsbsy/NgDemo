@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "NgDemo": {
+    "music-demo3": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -36,7 +36,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/NgDemo",
+            "outputPath": "dist/music-demo3",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -44,10 +44,15 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.less"
+              "src/assets/styles/index.less"
             ],
             "scripts": []
           },
@@ -86,18 +91,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "NgDemo:build"
+            "browserTarget": "music-demo3:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "NgDemo:build:production"
+              "browserTarget": "music-demo3:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "NgDemo:build"
+            "browserTarget": "music-demo3:build"
           }
         },
         "test": {
@@ -112,7 +117,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/assets/styles/index.less"
             ],
             "scripts": []
           }
@@ -134,15 +139,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "NgDemo:serve"
+            "devServerTarget": "music-demo3:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "NgDemo:serve:production"
+              "devServerTarget": "music-demo3:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "NgDemo"
+    }
+  },
+  "defaultProject": "music-demo3"
 }
